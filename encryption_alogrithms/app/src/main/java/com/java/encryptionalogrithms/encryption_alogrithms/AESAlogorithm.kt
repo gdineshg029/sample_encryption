@@ -1,5 +1,6 @@
 package com.java.encryptionalogrithms.encryption_alogrithms
 
+import com.java.encryptionalogrithms.Constants.TAG
 import java.lang.Exception
 import javax.crypto.Cipher
 import javax.crypto.KeyGenerator
@@ -19,31 +20,31 @@ class AESAlogorithm {
         }
 
 
-        fun encryptData(plainText:String):String?{
-            var result:String ?= null
+        fun encryptData(plainText:ByteArray):ByteArray?{
+            var result:ByteArray ?= null
             try {
                 plainText.let {
                     val cipher = Cipher.getInstance(alogorithmType)
                     cipher.init(Cipher.ENCRYPT_MODE, secretKey)
-                    result = cipher.doFinal(plainText.toByteArray()).toString()
+                    result = cipher.doFinal(plainText)
                 }
             }catch (exception : Exception){
-                println("Exception occured during encryption is $exception")
+                println("$TAG Exception in AES occured during encryption is $exception")
             }
             return result
         }
 
-        fun decryptData(encryptedText:String):String?{
-            var result:String ?= null
+        fun decryptData(encryptedText:ByteArray):ByteArray?{
+            var result:ByteArray ?= null
             try {
                 encryptedText.let {
                     var cipher = Cipher.getInstance(alogorithmType)
                     cipher.init(Cipher.DECRYPT_MODE, secretKey)
-                    result = cipher.doFinal(encryptedText.toByteArray()).toString()
+                    result = cipher.doFinal(encryptedText)
                 }
 
             }catch (exception:Exception){
-                println("Exception occured during decryption is $exception")
+                println("$TAG Exception in AES occured during decryption is $exception")
             }
             return result
         }
