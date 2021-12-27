@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
 
         println("$TAG Enryption with RSA is \n $TAG ${String(rsaCipherText!!)}}")
 
-        println("$TAG Deryption with AES is \n $TAG ${String(AESAlogorithm.decryptData(aesCipherText!!)!!)}")
+        println("$TAG Deryption with AES is \n $TAG ${AESAlogorithm.decryptData(aesCipherText!!)}")
 
         println("$TAG Deryption with RSA is \n $TAG ${String(RSAAlogorithm.decryptData(rsaCipherText!!)!!)}")
     }

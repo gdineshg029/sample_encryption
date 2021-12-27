@@ -40,7 +40,8 @@ class AESAlogorithm {
                 encryptedText.let {
                     var cipher = Cipher.getInstance(alogorithmType)
                     cipher.init(Cipher.DECRYPT_MODE, secretKey)
-                    result = cipher.doFinal(encryptedText)
+                    val byteArray = cipher.doFinal(encryptedText)
+                    println("DecryptedAESArray ${String(byteArray)}")
                 }
 
             }catch (exception:Exception){
